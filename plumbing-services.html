@@ -154,18 +154,30 @@
       </ul>
     </div>
   </section>
-
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer__inner">
+
+      <!-- Left: logo + contact -->
       <div class="footer__logo">
         <img src="images/main-logo.png" alt="Heat GB Services Ltd" onerror="this.style.display='none'" />
-        <p>(Office) <a href="tel:01707656558" style="color:var(--orange);font-weight:600;">01707 656 558</a></p>
-        <p>(Hertfordshire) <a href="tel:07961363196" style="color:var(--orange);font-weight:600;">07961 363 196</a></p>
-        <p style="margin-top:.5rem;">41 Elmroyd Avenue, Potters Bar,<br>Hertfordshire, EN6 2EE</p>
+        <p class="footer__phone"><a href="tel:01707656558"><span>(Office)</span> 01707 656 558</a></p>
+        <p class="footer__phone"><a href="tel:07961363196"><span>(Hertfordshire)</span> 07961 363 196</a></p>
+        <p class="footer__address">41 Elmroyd Avenue, Potters Bar,<br>Hertfordshire, EN6 2EE</p>
       </div>
-      <nav class="footer__nav">
-        <h4>Navigation</h4>
+
+      <!-- Centre: map -->
+      <div class="footer__map">
+        <iframe
+          src="https://maps.google.com/maps?q=41+Elmroyd+Avenue,+Potters+Bar,+EN6+2EE,+UK&output=embed&z=13"
+          title="Heat GB location"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- Right: navigation -->
+      <nav class="footer__nav" aria-label="Footer navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="boiler-installations.html">Boiler Installations</a></li>
@@ -175,13 +187,7 @@
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
-      <div class="footer__contact">
-        <h4>Contact</h4>
-        <p>Heat GB Services Ltd<br>41 Elmroyd Avenue<br>Potters Bar, EN6 2EE</p>
-        <p><strong>Office:</strong> <a href="tel:01707656558">01707 656 558</a></p>
-        <p><strong>Hertfordshire:</strong> <a href="tel:07961363196">07961 363 196</a></p>
-        <p style="margin-top:1rem;"><a href="contact.html" class="btn btn-orange" style="font-size:.875rem;padding:.6rem 1.4rem;">Send us a message</a></p>
-      </div>
+
     </div>
     <div class="footer__bottom">
       <div class="container">
