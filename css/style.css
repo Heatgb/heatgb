@@ -270,13 +270,15 @@ p { margin-bottom: 1rem; }
 
 .hero__image {
   position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
+  right: 2rem;
+  top: 2rem;
+  bottom: 2rem;
+  width: calc(50% - 2rem);
   object-fit: cover;
   object-position: center;
   z-index: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
 }
 
 .hero__badge {
