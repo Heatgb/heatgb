@@ -262,7 +262,7 @@ p { margin-bottom: 1rem; }
   position: relative;
   z-index: 2;
   max-width: 620px;
-  padding: 4rem 0;
+  padding: 4rem 4rem 4rem 0;
 }
 
 .hero__content h1 { margin-bottom: 1rem; }
