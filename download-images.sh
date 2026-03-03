@@ -1,49 +1,45 @@
 #!/bin/bash
-# ============================================================
-# Heat GB — Image Downloader
-# Run this script from your Mac terminal (NOT inside the VM)
-# to download all site images locally.
-#
-# Usage:
-#   chmod +x download-images.sh
-#   ./download-images.sh
-# ============================================================
+# Run this script from the heatgb directory to download all missing images
+# Usage: bash download-images.sh
 
-set -e
-DEST="$(dirname "$0")/images"
-mkdir -p "$DEST"
+BASE="https://www.heatgb.co.uk/wp-content/uploads/2020/11"
+DEST="images"
 
-BASE="https://www.heatgb.co.uk/wp-content/uploads"
-
-imgs=(
-  "2020/11/main-logo.png"
-  "2020/12/header-5-stars.png"
-  "2020/11/12year-logo.png"
-  "2020/11/image-1.png"
-  "2020/11/banner-btn.png"
-  "2020/11/home-box1.png"
-  "2020/11/home-box1-rollover.png"
-  "2020/11/home-box2.png"
-  "2020/11/home-box2-rollover.png"
-  "2020/11/home-box3.png"
-  "2020/11/home-box3-rollover.png"
-  "2020/11/logo1.png"
-  "2020/11/logo2..png"
-  "2020/11/star-icon.png"
-)
-
-echo "Downloading Heat GB images to: $DEST"
+echo "Downloading missing images to ./$DEST/"
 echo ""
 
-for img in "${imgs[@]}"; do
-  filename=$(basename "$img")
-  url="$BASE/$img"
-  echo "  ↓ $filename"
-  curl -sL "$url" -o "$DEST/$filename" || echo "    ✗ Failed: $url"
+images=(
+  "image-1-1.png"
+  "image-2.png"
+  "image-3.png"
+  "image-1-2.png"
+  "image-2-1.png"
+  "image-3-1.png"
+  "image-1-3.png"
+  "worester-img1.png"
+  "worcester-icon1.png"
+  "worcester-icon2.png"
+  "gassafe-section-image1.png"
+  "gassafe-section-image2.png"
+  "logo3.png"
+  "footer-logo.png"
+  "worcester-banner-boiler.png"
+  "worcester-logo.png"
+)
+
+ok=0
+fail=0
+
+for img in "${images[@]}"; do
+  echo -n "  Downloading $img ... "
+  if curl -s -f -o "$DEST/$img" "$BASE/$img"; then
+    echo "OK"
+    ((ok++))
+  else
+    echo "FAILED"
+    ((fail++))
+  fi
 done
 
 echo ""
-echo "Done! Images saved to: $DEST"
-echo ""
-echo "NOTE: After downloading, update image src attributes in the HTML files"
-echo "to use local paths (images/filename.png) instead of the original URLs."
+echo "Done: $ok downloaded, $fail failed."
