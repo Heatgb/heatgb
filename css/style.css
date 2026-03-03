@@ -309,6 +309,11 @@ p { margin-bottom: 1rem; }
   align-items: center;
 }
 
+.about-strip--text-only {
+  grid-template-columns: 1fr;
+  max-width: 780px;
+}
+
 .about-strip__img img {
   border-radius: 8px;
   width: 100%;
@@ -535,6 +540,46 @@ p { margin-bottom: 1rem; }
 
 .content-block__text h2 { margin-bottom: 1rem; }
 .content-block__text h3 { margin: 1.5rem 0 .75rem; color: var(--orange); }
+
+/* Service icon panel used in inner-page content blocks */
+.icon-panel {
+  background: var(--orange);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  gap: 1.25rem;
+  min-height: 260px;
+}
+.icon-panel img {
+  width: 120px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+.icon-panel__label {
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  text-align: center;
+}
+
+/* Photo panel used in inner-page content blocks (team photo) */
+.photo-panel {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+}
+.photo-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .content-block__text ul {
   margin: .75rem 0 1rem 1.25rem;
