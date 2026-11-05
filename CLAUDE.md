@@ -11,95 +11,85 @@ Static website for **Heat GB**, rebuilt from the original hosting platform and m
 - **Live site (original):** https://www.heatgb.co.uk
 - **GitHub remote:** git@github.com:tarne75/heatgb-alt.git
 - **Target hosting:** GitHub Pages (root of `main` branch)
+- **Local preview:** `python3 -m http.server 8765` from this folder → http://localhost:8765/
 
 ---
 
-## Initial Plan
+## Rules
 
-**Full site redesign and static rebuild** from the hosted site to plain HTML/CSS/JS, ready for GitHub Pages.
-
-### Main objectives
-- Pull all images, shared assets
-- Modenise the look and feel, but make sure all images are incoporated into the new updated look and feel
-- No contact form — all contact is by email to `gary@heatgb.co.uk` (mailto links)
+- No contact form — all contact is by email to `gary@heatgb.co.uk` (mailto links) or phone
+- No further email buttons wanted beyond the existing CTAs
 - Log all progress in CLAUDE.md automatically
 - Do not "git push" but make sure all changes are committed locally, as necessary
 - **All commits authored by Tarne Westcott only — never add `Co-Authored-By` or any other attribution trailers**
 - No plumbing services — the business does not offer them; do not reintroduce plumbing content
-
-### Design system
-- **Colours:** Retain existing theme colours
-- **Fonts:** Oswald (headings/display) + Inter (body) — loaded from Google Fonts
-- **Layout:** CSS Grid + Flexbox, mobile hamburger nav, sticky header, full footer
-- **No frameworks** — vanilla HTML/CSS/JS only
-
-### Dynamic behaviour
-| Feature | Approach |
-|---|---|
-| Contact | `mailto:gary@heatgb.co.uk` links with a pre-filled subject per button (e.g. "Powerflush booking") |
-| Contact form | Removed (Formspree no longer used) |
-
-## Completed work (session log)
-
-### Pages built
-Five static HTML pages, all with shared header, nav, footer, and `js/main.js`:
-- `index.html` — homepage with hero, about strip, services grid, CTA, accreditations, areas
-- `boiler-installations.html`
-- `boiler-servicing.html`
-- `worcester.html`
-- `contact.html`
-
-### Images
-All images downloaded from original CDN (`https://www.heatgb.co.uk/wp-content/uploads/2020/11/`) and stored locally in `images/`. Script `download-images.sh` can re-fetch them if needed. Unused originals (rollovers, Gas Safe section images, spare service photos, etc.) were deleted — `images/` holds only what the pages use.
-
-Key images in use:
-| File | Used on |
-|---|---|
-| `main-logo.png` | header + footer (all pages) |
-| `image-1.png` | homepage hero (team + vans photo) |
-| `image-1-1.png` | boiler-installations — Boiler section |
-| `image-2.png` | boiler-installations — Powerflushing section |
-| `image-1-2.png` | boiler-servicing — Servicing section |
-| `image-3-1.png` | boiler-servicing — CP12 section |
-| `worester-img1.png` | worcester — main section (note: typo in original filename) |
-| `worcester-icon1.png` / `worcester-icon2.png` | worcester — feature cards |
-| `worcester-logo.png` | worcester — banner |
-| `12year-logo.png` | worcester banner + extended guarantees section |
-| `logo1.png` / `logo2..png` / `logo3.png` | accreditations (all pages) — Worcester Bosch / Gas Safe / CIPHE, each linking to its website in a new tab |
-| `home-box1/2.png` | homepage service cards (2-column grid) |
-
-### CSS (`css/style.css`)
-- Design tokens: `--orange: #E8581A`, `--black: #1a1a1a`, `--mid: #666`
-- Fonts: Oswald (headings) + Inter (body) from Google Fonts
-- Components: `.photo-panel`, `.icon-panel`, `.worcester-cards`, `.highlight-box`, `.checklist`, `.accreditations`, `.areas-section`
-- `.services-grid` is 2 columns (max-width 820px) after plumbing card removal
-- Fully responsive with hamburger nav at 768px
-
-### JavaScript (`js/main.js`)
-- Mobile nav toggle
-
-### Footer (all pages)
-Redesigned to match original site: 3-column grid
-1. **Left** — logo (80px) + phone numbers + address
-2. **Centre** — embedded Google Map (`maps.google.com/maps?q=41+Elmroyd+Avenue...`)
-3. **Right** — navigation links
-
-### Contact (all pages)
-- Topbar "Contact us today" and every CTA button link to `mailto:gary@heatgb.co.uk`
-- `contact.html` shows phone, address and an "Email Us" panel (no form, no in-page map — the footer map covers it; no opening hours, as the original site lists none)
-- Worcester "Get a Free Quote" button removed; no further email buttons wanted
+- Only use copy that exists on the original site — do not invent facts (opening hours, fault lists, etc. were removed for this reason)
 - Address: 41 Elmroyd Avenue, Potters Bar is correct (ignore the Borehamwood address on the original contact page)
+- **Target: maximum PageSpeed scores** — no frameworks, no third-party scripts/fonts on load, vanilla HTML/CSS/JS only
 
-### Hero image (index.html)
-Team photo inset `2rem` from edges with `border-radius:12px` and `box-shadow` to give a white-framed appearance. `hero__content` has `padding-right:4rem` to keep text clear of the image. On mobile (≤768px) the photo drops below the hero text as a normal full-colour image.
+---
+
+## Current design — "Warmth, engineered." (single-page landing site)
+
+Redesigned as an award-style single landing page (`index.html`). Dark warm-black base with ember/flame accents, alternating cream sections for rhythm.
+
+### Sections (ids)
+| id | Section |
+|---|---|
+| `#top` | Hero — headline, CTAs, trust chips, animated 12-year **thermostat gauge** (counts 0→12), floating boiler photo, drifting heat blobs, grain |
+| — | Tilted flame-gradient **marquee** band |
+| `#about` | Statement that lights up word-by-word on scroll, team photo in arch with spinning "est. 1999" sticker, 4 count-up stats |
+| `#services` | 5 **sticky stacked cards** (installations, powerflushing, servicing, repairs, CP12) — earlier cards scale/dim as the next slides over (desktop ≥960×760). Repairs card uses a green boiler-LCD "diagnostics" panel |
+| `#worcester` | Product shot on a pedestal with rotating text ring + 12-year badge, benefits list, 5→12 yrs guarantee strip |
+| `#gas-safe` | Gas Safe copy + animated yellow ID card, accreditation logos linking to Worcester Bosch / Gas Safe / CIPHE |
+| `#coverage` | **Radar map** — the 8 areas plotted at real relative positions around Potters Bar (from lat/long), sweep + pulse; hovering list ↔ radar highlights |
+| `#contact` | Flame-orange finale: "Let's get you warm." with phone ×2 + email cells |
+| footer | Logo/phones/address · click-to-load Google Map facade · nav |
+
+### Signature navigation — the thermostat
+- `.thermo` button (top-right desktop, bottom-right thumb position on mobile) shows a conic ring that fills and a temperature that rises 12°→23° as you scroll
+- Opens a full-screen menu (circular clip-path reveal). Each link has a "temperature"; hovering/focusing turns the big dial needle + arc and shows the section name. Dial hidden on ≤960px (contact details shown instead)
+- Accessible: `aria-expanded`, `role=dialog`, focus moves into menu, Tab is trapped, Escape closes, `inert` on page behind
+- Desktop ≥1100px also has inline header links with an active-section underline
+
+### Files
+- `index.html` — the whole site (+ JSON-LD `HVACBusiness` structured data)
+- `css/style.css` — design tokens, components, responsive (breakpoints 1100 / 960 / 640), `prefers-reduced-motion` support
+- `js/main.js` — ~6KB deferred: header state, thermostat progress, menu/dial, section tracking, reveals, word reveal, card stacking effect, count-ups, radar hover, map facade, footer year
+- `boiler-installations.html`, `boiler-servicing.html`, `worcester.html`, `contact.html` — tiny `noindex` redirect stubs to the matching `index.html#section`
+- `404.html` — branded "gone cold" page
+- `fonts/` — self-hosted woff2 (latin subset): Bricolage Grotesque variable 400–800 (display + body), Instrument Serif italic (accents). Re-download with `bash download-fonts.sh`
+
+### Design tokens
+- Colours: `--ink #0E0C0B`, `--cream #F5EFE8`, `--ember #E8581A` (brand), `--ember-hi #FF7A3D` (text on dark), `--ember-deep #B8420E` (text on cream), `--amber #FFB347`, `--flame` gradient
+- Contrast rules: orange buttons use **dark text** (white on #E8581A fails AA); orange text on cream uses `--ember-deep`
+
+### Images (`images/`, all WebP, ~1x + @2x via `srcset`)
+| File | Use |
+|---|---|
+| `logo-light.webp` | Logo recoloured for dark backgrounds (black → off-white, true transparency, brand orange #EA552B) |
+| `photo-boiler` | Hero floating card + installations card |
+| `photo-powerflush`, `photo-servicing`, `photo-cp12` | Service cards |
+| `photo-team` | About section (**to be replaced** — van livery mentions plumbing) |
+| `worcester-boilers`, `badge-12year` | Worcester pedestal |
+| `logo-worcester-bosch`, `logo-gas-safe`, `logo-ciphe` | Accreditations + Gas Safe ID card |
+| `favicon-16/32.png`, `apple-touch-icon.png` | Icons |
+
+Photos were cropped to remove shadows baked into the original PNGs. @2x versions are Lanczos upscales (originals are only ~450–550px wide) so PageSpeed's image-resolution audit passes on high-DPI phones.
+
+### Performance notes (measured locally)
+- 8–9 requests, ~200KB on first view; FCP ~90ms local; CLS 0; no long tasks
+- Fonts preloaded, `font-display: swap`, metric-tuned fallbacks
+- Google Map only loads when the user clicks the footer facade (keeps third-party JS/cookies off page load)
+- Below-fold images `loading="lazy"` + `decoding="async"`; every `<img>` has width/height
+- Word reveal uses `background-clip: text` (not opacity) so the contrast audit doesn't flag dimmed words
 
 ---
 
 ## Manual tasks still to do
 
-- [x] **Download images** — run `bash download-images.sh` from the heatgb folder on your Mac
 - [ ] **Push to GitHub** — `git push origin main`, then enable GitHub Pages in repo settings (Source: `main` branch, root `/`)
-- [ ] **Replace homepage team photo** (`images/image-1.png`) — current van livery says "Heating & Plumbing"; Tarne to supply a new photo
-- [x] **Remove Preview watermark** — done
+- [ ] **Run PageSpeed Insights** on the live GitHub Pages URL (mobile + desktop) and report any non-100 audits back
+- [ ] **Replace homepage team photo** (`images/photo-team.webp` + `@2x`) — current van livery says "Heating & Plumbing"; Tarne to supply a new photo
+- [ ] **T&Cs / complaints documents** — the original site links a guarantee T&Cs PDF and complaints procedure on heatgb.co.uk; they need hosting in this repo before the domain moves if they should be linked
 - [ ] **Domain** — point `heatgb.co.uk` DNS to GitHub Pages (CNAME record → `tarne75.github.io`, add `CNAME` file to repo root containing `heatgb.co.uk`)
-
