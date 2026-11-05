@@ -11,18 +11,12 @@ echo ""
 images=(
   "image-1-1.png"
   "image-2.png"
-  "image-3.png"
   "image-1-2.png"
-  "image-2-1.png"
   "image-3-1.png"
   "worester-img1.png"
   "worcester-icon1.png"
   "worcester-icon2.png"
-  "gassafe-section-image1.png"
-  "gassafe-section-image2.png"
   "logo3.png"
-  "footer-logo.png"
-  "worcester-banner-boiler.png"
   "worcester-logo.png"
 )
 

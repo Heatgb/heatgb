@@ -50,7 +50,7 @@ Five static HTML pages, all with shared header, nav, footer, and `js/main.js`:
 - `contact.html`
 
 ### Images
-All images downloaded from original CDN (`https://www.heatgb.co.uk/wp-content/uploads/2020/11/`) and stored locally in `images/`. Script `download-images.sh` can re-fetch them if needed.
+All images downloaded from original CDN (`https://www.heatgb.co.uk/wp-content/uploads/2020/11/`) and stored locally in `images/`. Script `download-images.sh` can re-fetch them if needed. Unused originals (rollovers, Gas Safe section images, spare service photos, etc.) were deleted — `images/` holds only what the pages use.
 
 Key images in use:
 | File | Used on |
@@ -65,7 +65,7 @@ Key images in use:
 | `worcester-icon1.png` / `worcester-icon2.png` | worcester — feature cards |
 | `worcester-logo.png` | worcester — banner |
 | `12year-logo.png` | worcester banner + extended guarantees section |
-| `logo1.png` / `logo2..png` / `logo3.png` | accreditations section (all pages) |
+| `logo1.png` / `logo2..png` / `logo3.png` | accreditations (all pages) — Worcester Bosch / Gas Safe / CIPHE, each linking to its website in a new tab |
 | `home-box1/2.png` | homepage service cards (2-column grid) |
 
 ### CSS (`css/style.css`)
@@ -88,7 +88,8 @@ Redesigned to match original site: 3-column grid
 ### Contact (all pages)
 - Topbar "Contact us today" and every CTA button link to `mailto:gary@heatgb.co.uk`
 - `contact.html` shows phone, address and an "Email Us" panel (no form, no in-page map — the footer map covers it; no opening hours, as the original site lists none)
-- Worcester "Get a Free Quote" button removed
+- Worcester "Get a Free Quote" button removed; no further email buttons wanted
+- Address: 41 Elmroyd Avenue, Potters Bar is correct (ignore the Borehamwood address on the original contact page)
 
 ### Hero image (index.html)
 Team photo inset `2rem` from edges with `border-radius:12px` and `box-shadow` to give a white-framed appearance. `hero__content` has `padding-right:4rem` to keep text clear of the image. On mobile (≤768px) the photo drops below the hero text as a normal full-colour image.
@@ -99,6 +100,7 @@ Team photo inset `2rem` from edges with `border-radius:12px` and `box-shadow` to
 
 - [x] **Download images** — run `bash download-images.sh` from the heatgb folder on your Mac
 - [ ] **Push to GitHub** — `git push origin main`, then enable GitHub Pages in repo settings (Source: `main` branch, root `/`)
+- [ ] **Replace homepage team photo** (`images/image-1.png`) — current van livery says "Heating & Plumbing"; Tarne to supply a new photo
 - [ ] **Remove Preview watermark** before going live — delete the `/* ── Preview watermark ── */` block at the bottom of `js/main.js`
 - [ ] **Domain** — point `heatgb.co.uk` DNS to GitHub Pages (CNAME record → `tarne75.github.io`, add `CNAME` file to repo root containing `heatgb.co.uk`)
 
