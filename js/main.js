@@ -2,7 +2,6 @@
    HEAT GB — Main JavaScript
    - Mobile nav toggle
    - Active nav link
-   - Formspree AJAX form submission
    ============================================================ */
 
 (function () {
@@ -36,57 +35,6 @@
     }
   });
 
-  /* ── Formspree AJAX submission ── */
-  function setupFormspree(formSelector) {
-    const form = document.querySelector(formSelector);
-    if (!form) return;
-
-    const successMsg = form.querySelector('.form-success');
-    const errorMsg   = form.querySelector('.form-error');
-    const submitBtn  = form.querySelector('button[type="submit"]');
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const originalText = submitBtn ? submitBtn.textContent : '';
-      if (submitBtn) {
-        submitBtn.textContent = 'Sending…';
-        submitBtn.disabled = true;
-      }
-
-      if (successMsg) successMsg.style.display = 'none';
-      if (errorMsg)   errorMsg.style.display   = 'none';
-
-      try {
-        const data = new FormData(form);
-        const response = await fetch('https://formspree.io/f/xwvndkow', {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          form.reset();
-          if (successMsg) successMsg.style.display = 'block';
-          if (successMsg) successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        } else {
-          throw new Error('Server error');
-        }
-      } catch (err) {
-        if (errorMsg) {
-          errorMsg.style.display = 'block';
-          errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      } finally {
-        if (submitBtn) {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }
-      }
-    });
-  }
-
-  setupFormspree('#contact-form');
 
   /* ── Preview watermark ── */
   const wm = document.createElement('div');

@@ -15,7 +15,6 @@ images=(
   "image-1-2.png"
   "image-2-1.png"
   "image-3-1.png"
-  "image-1-3.png"
   "worester-img1.png"
   "worcester-icon1.png"
   "worcester-icon2.png"
