@@ -576,6 +576,13 @@ a.finale__cell:hover span svg { transform: translateX(4px); }
 .mapbox__facade:hover .mapbox__pin { transform: rotate(-45deg) translate(4px, -4px); }
 .mapbox__btn small { color: var(--muted); font-weight: 500; font-size: .85rem; }
 .footer__bottom { border-top: 1px solid var(--line); padding: 1.5rem 0 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 2rem; font-size: .82rem; color: var(--muted); }
+.footer__legal { display: flex; gap: 1.4rem; }
+.footer__legal a, a.tc { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color .3s; }
+.footer__legal a { display: inline-block; padding: .35rem 0; }
+.footer__legal a:hover, a.tc:hover { color: var(--ember-hi); }
+a.tc { color: var(--muted); font-style: italic; white-space: nowrap; }
+.light a.tc { color: var(--muted-dark); }
+.light a.tc:hover { color: var(--ember-deep); }
 
 /* ==========================================================================
    REVEAL ANIMATIONS (only when JS is running)

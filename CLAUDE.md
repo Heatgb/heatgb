@@ -58,6 +58,9 @@ Redesigned as an award-style single landing page (`index.html`). Dark warm-black
 - `js/main.js` — ~6KB deferred: header state, thermostat progress, menu/dial, section tracking, reveals, word reveal, card stacking effect, count-ups, radar hover, map facade, footer year
 - `boiler-installations.html`, `boiler-servicing.html`, `worcester.html`, `contact.html` — tiny `noindex` redirect stubs to the matching `index.html#section`
 - `404.html` — branded "gone cold" page
+- `docs/heat-gb-terms-and-conditions.pdf` — Heat GB terms of business (4pp, from the original site). Linked from hero "*T&Cs apply", Worcester small print and footer
+- `docs/heat-gb-complaints-procedure.pdf` — Which? Trusted Traders model complaints policy (TTF11 v8, Feb 23) as published on the original site; converted from .docx to PDF with LibreOffice. Linked from footer
+- `download-docs.sh` — re-fetches both originals (complaints policy arrives as .docx and needs converting: `soffice --headless --convert-to pdf`)
 - `fonts/` — self-hosted woff2 (latin subset): Bricolage Grotesque variable 400–800 (display + body), Instrument Serif italic (accents). Re-download with `bash download-fonts.sh`
 
 ### Design tokens
@@ -91,5 +94,5 @@ Photos were cropped to remove shadows baked into the original PNGs. @2x versions
 - [ ] **Push to GitHub** — `git push origin main`, then enable GitHub Pages in repo settings (Source: `main` branch, root `/`)
 - [ ] **Run PageSpeed Insights** on the live GitHub Pages URL (mobile + desktop) and report any non-100 audits back
 - [ ] **Replace homepage team photo** (`images/photo-team.webp` + `@2x`) — current van livery says "Heating & Plumbing"; Tarne to supply a new photo
-- [ ] **T&Cs / complaints documents** — the original site links a guarantee T&Cs PDF and complaints procedure on heatgb.co.uk; they need hosting in this repo before the domain moves if they should be linked
+- [x] **T&Cs / complaints documents** — hosted in `docs/` and linked
 - [ ] **Domain** — point `heatgb.co.uk` DNS to GitHub Pages (CNAME record → `tarne75.github.io`, add `CNAME` file to repo root containing `heatgb.co.uk`)
