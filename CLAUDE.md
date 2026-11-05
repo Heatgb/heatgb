@@ -87,11 +87,11 @@ Redesigned to match original site: 3-column grid
 
 ### Contact (all pages)
 - Topbar "Contact us today" and every CTA button link to `mailto:gary@heatgb.co.uk`
-- `contact.html` shows phone, address, hours, map and an "Email Us" panel instead of a form
+- `contact.html` shows phone, address and an "Email Us" panel (no form, no in-page map — the footer map covers it; no opening hours, as the original site lists none)
 - Worcester "Get a Free Quote" button removed
 
 ### Hero image (index.html)
-Team photo inset `2rem` from edges with `border-radius:12px` and `box-shadow` to give a white-framed appearance. `hero__content` has `padding-right:4rem` to keep text clear of the image.
+Team photo inset `2rem` from edges with `border-radius:12px` and `box-shadow` to give a white-framed appearance. `hero__content` has `padding-right:4rem` to keep text clear of the image. On mobile (≤768px) the photo drops below the hero text as a normal full-colour image.
 
 ---
 
