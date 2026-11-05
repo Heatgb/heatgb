@@ -35,31 +35,4 @@
     }
   });
 
-
-  /* ── Preview watermark ── */
-  const wm = document.createElement('div');
-  wm.setAttribute('aria-hidden', 'true');
-  wm.style.cssText = [
-    'position:fixed',
-    'top:50%',
-    'left:50%',
-    'transform:translate(-50%,-50%)',
-    'width:100vw',
-    'text-align:center',
-    'font-family:Oswald,sans-serif',
-    'font-size:18vw',
-    'font-weight:700',
-    'letter-spacing:-.02em',
-    'text-transform:uppercase',
-    'color:#000',
-    'opacity:0.08',
-    'pointer-events:none',
-    '-webkit-user-select:none',
-    'user-select:none',
-    'z-index:9999',
-    'white-space:nowrap',
-  ].join(';');
-  wm.textContent = 'Preview';
-  document.body.appendChild(wm);
-
 })();

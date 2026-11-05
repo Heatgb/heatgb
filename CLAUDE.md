@@ -77,7 +77,6 @@ Key images in use:
 
 ### JavaScript (`js/main.js`)
 - Mobile nav toggle
-- **Preview watermark** — fixed `position:fixed` "PREVIEW" overlay injected into every page, `opacity:0.08`, `font-size:18vw`, non-interactive (`pointer-events:none`)
 
 ### Footer (all pages)
 Redesigned to match original site: 3-column grid
@@ -101,6 +100,6 @@ Team photo inset `2rem` from edges with `border-radius:12px` and `box-shadow` to
 - [x] **Download images** — run `bash download-images.sh` from the heatgb folder on your Mac
 - [ ] **Push to GitHub** — `git push origin main`, then enable GitHub Pages in repo settings (Source: `main` branch, root `/`)
 - [ ] **Replace homepage team photo** (`images/image-1.png`) — current van livery says "Heating & Plumbing"; Tarne to supply a new photo
-- [ ] **Remove Preview watermark** before going live — delete the `/* ── Preview watermark ── */` block at the bottom of `js/main.js`
+- [x] **Remove Preview watermark** — done
 - [ ] **Domain** — point `heatgb.co.uk` DNS to GitHub Pages (CNAME record → `tarne75.github.io`, add `CNAME` file to repo root containing `heatgb.co.uk`)
 
