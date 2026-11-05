@@ -9,7 +9,7 @@ This file records what has been done to this repository so Claude (and humans) h
 Static website for **Heat GB**, rebuilt from the original hosting platform and migrated to **GitHub Pages**.
 
 - **Live site (original):** https://www.heatgb.co.uk
-- **GitHub remote:** git@github.com:tarne75/heatgb-alt.git
+- **GitHub remotes:** `origin` → git@github.com:tarne75/heatgb-alt.git · `heatgb` → git@github.com-heatgb:heatgb/heatgb.git (Heatgb personal account; Pages URL https://heatgb.github.io/heatgb/)
 - **Target hosting:** GitHub Pages (root of `main` branch)
 - **Local preview:** `python3 -m http.server 8765` from this folder → http://localhost:8765/
 
@@ -58,6 +58,7 @@ Redesigned as an award-style single landing page (`index.html`). Dark warm-black
 - `js/main.js` — ~6KB deferred: header state, thermostat progress, menu/dial, section tracking, reveals, word reveal, card stacking effect, count-ups, radar hover, map facade, footer year
 - `boiler-installations.html`, `boiler-servicing.html`, `worcester.html`, `contact.html` — tiny `noindex` redirect stubs to the matching `index.html#section`
 - `404.html` — branded "gone cold" page
+- `.nojekyll` — tells GitHub Pages to publish files as-is (skip the Jekyll build step)
 - `docs/heat-gb-terms-and-conditions.pdf` — Heat GB terms of business (4pp, from the original site). Linked from hero "*T&Cs apply", Worcester small print and footer
 - `docs/heat-gb-complaints-procedure.pdf` — Which? Trusted Traders model complaints policy (TTF11 v8, Feb 23) as published on the original site; converted from .docx to PDF with LibreOffice. Linked from footer
 - `download-docs.sh` — re-fetches both originals (complaints policy arrives as .docx and needs converting: `soffice --headless --convert-to pdf`)
