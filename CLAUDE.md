@@ -44,7 +44,7 @@ Redesigned as an award-style single landing page (`index.html`). Dark warm-black
 | `#gas-safe` | Gas Safe copy + animated yellow ID card, accreditation logos linking to Worcester Bosch / Gas Safe / CIPHE |
 | `#coverage` | **Radar map** — the 8 areas plotted at real relative positions around Potters Bar (from lat/long), sweep + pulse; hovering list ↔ radar highlights |
 | `#contact` | Flame-orange finale: "Let's get you warm." with phone ×2 + email cells |
-| footer | Logo/phones/address · click-to-load Google Map facade · nav |
+| footer | Logo/phones/address · click-to-load Google Map facade · nav · bottom row: company/VAT details left; T&Cs, Complaints procedure and `t4-digital.uk` credit link (muted, orange on hover) right |
 
 ### Signature navigation — the thermostat
 - `.thermo` button (top-right desktop, bottom-right thumb position on mobile) shows a conic ring that fills and a temperature that rises 12°→23° as you scroll
